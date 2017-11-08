@@ -1,7 +1,7 @@
 body{
    /*  background-color:#808040;
     background-repeat:repeat-y;   */ 
-   background-image:  url(../images/con_v_Bg.gif);
+   background-image:  url(/resources/image/con_v_Bg.gif);
    background-repeat:repeat-x;
     margin:0;
     padding:0;
@@ -12,7 +12,7 @@ body{
 }
 
 #backlogo{
-	 background-image: url(../images/momstouch/container_Bg_02.png);
+	 background-image: url(/resources/image/momstouch/container_Bg_02.png);
 	 background-position:10% 30%;
 	background-repeat: no-repeat;
 	overflow:hidden;
@@ -25,7 +25,7 @@ body{
     margin:0;
     margin-right:auto;
     margin-left:auto;
-     background-image: url(../images/con_v_Bg.gif);
+     background-image: url(/resources/image/con_v_Bg.gif);
    background-repeat: repeat-x;
   /*   background-color:#B96DB5;
     background-repeat:repeat-y;  */   
@@ -256,7 +256,7 @@ div#front{
 }
 
 #sub_menu a:hover {
-	background-image: url(../images/bullet_orange.gif);
+	background-image: url(/resources/image/bullet_orange.gif);
 	background-repeat: no-repeat; 
 	background-position: right center;
 	color: #F90;font-weight:bold; font-size:16px;
@@ -371,11 +371,11 @@ form  .submit,form  .cancel {
 }
 
 form  .submit {
-	background-image: url(../images/submit_back.jpg);
+	background-image: url(/resources/image/submit_back.jpg);
 }
 
 form  .cancel {
-	background-image: url(../images/cancel_back.jpg);	
+	background-image: url(/resources/image/cancel_back.jpg);	
 }
 
 /*paginate*/

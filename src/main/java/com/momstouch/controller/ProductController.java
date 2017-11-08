@@ -58,5 +58,42 @@ public class ProductController {
 		return "/product/productKind3";
 
 	}
+	
+	@RequestMapping(value = "cart_insert", method = RequestMethod.GET)
+	public String cart_insert(Model model){
+		
+		return "redirect:/product/cart_list";
+	}
 
+	@RequestMapping(value = "cart_list" , method = RequestMethod.GET)
+	public String cart_list(Model model){
+		return "/mypage/cartList";
+	}
+
+	@RequestMapping(value = "cart_delete" , method = RequestMethod.GET)
+	public String cart_delete(Model model){
+		return "redirect:/product/cart_list";
+	}
+	@RequestMapping(value = "order_insert" , method = RequestMethod.GET)
+	public String order_insert(Model model){
+		return "redirect:/product/order_insert";
+	}
+	@RequestMapping(value = "order_list" , method = RequestMethod.GET)
+	public String order_list(Model model){
+		return "/mypage/orderList";
+	}
+	@RequestMapping(value = "mypage" , method = RequestMethod.GET)
+	public String mypage(Model model){
+		return "/mypage/mypage" ;
+	}
+	@RequestMapping(value = "order_detail" , method = RequestMethod.GET)
+	public String order_detail(Model model){
+		return "/mypage/orderDetail";
+	}
+	@RequestMapping(value = "order_all" , method = RequestMethod.GET)
+	public String order_all(Model model){
+		return "/mypage/mypage";
+	}
+
+	
 }

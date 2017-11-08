@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/Member/*")
+@RequestMapping("/member/*")
 public class MemberController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
@@ -58,7 +58,23 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value = "qna_list" , method = RequestMethod.GET)
+	public String qna_list(Model model){
+		return "/qna/qnaList";
+	}
 	
+	@RequestMapping(value = "qna_write_form" , method = RequestMethod.GET)
+	public String qna_write_form(Model model){
+		return "/qna/qnaWrite";
+	}
+	@RequestMapping(value = "qna_write" , method = RequestMethod.GET)
+	public String qna_write(Model model){
+		return "redirect:/Member/qna_list";
+	}
+	@RequestMapping(value = "qna_view" , method = RequestMethod.GET)
+	public String qna_view(Model model){
+		return "/qna/qnaView";
+	}
 	
 
 }
