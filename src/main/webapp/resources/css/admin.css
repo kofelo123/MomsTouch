@@ -3,7 +3,7 @@ header {
 }
 
 body {
-	background-image: url(../images/mainbg.jpg);
+	background-image: url(/resources/image/mainbg.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	margin: 0;
@@ -94,7 +94,7 @@ nav#top_menu ul li a.logout1 {
 }
 
 footer {
-	background-image: url("../images/under_logo.png");
+	background-image: url(/resources/image/under_logo.gif);
 	background-repeat: no-repeat;
 	background-position: 40px center;
 	float: left;
@@ -267,7 +267,7 @@ table#orderList {
 	width: 480px;
 	height: 180px;
 	margin-top: 10px;
-	background-image: url("../images/tic.png");
+	background-image: url("/resources/image/tic.png");
 	background-repeat: no-repeat;
 	background-position: center;
 	margin-left: 300px;

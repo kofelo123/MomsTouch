@@ -28,7 +28,24 @@ public class ProductDAOImpl implements ProductDAO{
 		return session.selectList(namespace + ".listBestProduct");
 	}
 
-	/*public List<ProductVO> listNewProduct(){
-		return session.selectList(statement)
-	}*/
+	@Override
+	public List<ProductVO> listKindProduct(String kind) {
+		return session.selectList(namespace + ".listKindProduct",kind);
+	}
+
+	@Override
+	public List<ProductVO> listKindProduct2(String kind) {
+		return session.selectList(namespace + ".listKindProduct2",kind);
+	}
+
+	@Override
+	public List<ProductVO> listKindProduct3(String kind) {
+		return session.selectList(namespace + ".listKindProduct3", kind);
+	}
+
+	@Override
+	public ProductVO product_detail(String pseq) {
+		return session.selectOne(namespace + ".product_detail",pseq);
+	}
+
 }

@@ -7,8 +7,8 @@
     <h2> MENU </h2>     
     <c:forEach items="${productKindList }"  var="productVO">
       <div id="item">
-        <a href="NonageServlet?command=product_detail&pseq=${productVO.pseq}"> 
-          <img src="images/momstouch/menu_${productVO.kind}/${productVO.image}.jpg" />
+        <a href="/product/product_detail&pseq=${productVO.pseq}"> 
+          <img src="/resources/image/momstouch/menu_${productVO.kind}/${productVO.image}.jpg" />
           <h3>${productVO.name} </h3>        
           <p>${productVO.price2} </p>
         </a>  
@@ -19,21 +19,21 @@
     <hr>
      <!-- paginate 시작 -->
   <div class="paginate">
-		<a href='NonageServlet?command=catagory&kind=${kindpage}' class='page_first' onfocus='this.blur()'> 
-		<img src="images/momstouch/paginate/btn_first.gif" alt='처음'></a>&nbsp;&nbsp;
+		<a href='/product/category&kind=${kindpage}' class='page_first' onfocus='this.blur()'> 
+		<img src="/resources/image/momstouch/paginate/btn_first.gif" alt='처음'></a>&nbsp;&nbsp;
 		
-		<a href='NonageServlet?command=catagory2&kind=${kindpage}' class='page_pre' onfocus='this.blur()'>
-		<img src='images/momstouch/paginate/btn_pre.gif' alt='이전'></a>&nbsp;&nbsp;
+		<a href='/product/category2&kind=${kindpage}' class='page_pre' onfocus='this.blur()'>
+		<img src='/resources/image/momstouch/paginate/btn_pre.gif' alt='이전'></a>&nbsp;&nbsp;
 		
-		<a href="NonageServlet?command=catagory&kind=${kindpage}">1</a>&nbsp;
-		<a href='NonageServlet?command=catagory2&kind=${kindpage}'>2</a>&nbsp;
+		<a href="/product/category&kind=${kindpage}">1</a>&nbsp;
+		<a href='/product/category2&kind=${kindpage}'>2</a>&nbsp;
 		<strong>3</strong>&nbsp;&nbsp;
 		
 		<a href="#" class='page_next' onfocus='this.blur()'>
-		<img src='images/momstouch/paginate/btn_next.gif' alt='다음' /></a>&nbsp;
+		<img src='/resources/image/momstouch/paginate/btn_next.gif' alt='다음' /></a>&nbsp;
 		
 		<a href='#'	class='page_end' onfocus='this.blur()'>
-		<img src='images/momstouch/paginate/btn_end.gif' alt='끝' /></a>
+		<img src='/resources/image/momstouch/paginate/btn_end.gif' alt='끝' /></a>
 		
 	</div>
 	<!--paginate 끝-->

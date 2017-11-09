@@ -12,5 +12,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listBestProduct" resultType="ProductVO">
 		select * from best_pro_view
 	</select>
+	
+	
+	<select id="listKindProduct" resultType="ProductVO">
+	<![CDATA[
+		select * from product where kind=#{kind} AND image<10 order by pseq ASC
+	]]>
+	</select>
+	
+	<select id="listKindProduct2" resultType="ProductVO">
+	<![CDATA[
+		select * from product where kind=#{kind} AND (image>9 AND image<19) order by pseq ASC
+	]]>
+	</select>
+	
+	<select id="listKindProduct3" resultType="ProductVO">
+		<![CDATA[
+			select * from product where kind=#{kind} AND image>18 order by pseq ASC
+		]]>
+	</select>
+	
+	<select id="product_detail" resultType="ProductVO">
+		select * from product where pseq=#{pseq}   
+	</select>
 
 </mapper>

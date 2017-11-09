@@ -79,7 +79,7 @@
     <nav id="top_menu">
       <ul>
         <li>
-          <a href="/product/catagory&kind=1">MENU</a>
+          <a href="/product/category?kind=1">MENU</a>
         </li>  
         <li>
           <a href="/product/cart_list">CART</a>
