@@ -5,7 +5,7 @@
 <script type="text/javascript">
   function go_search()
   {
-     document.frm.action="NonageServlet?command=admin_member_list";
+     document.frm.action="/admin/admin_member_list";
      document.frm.submit();
   }
 </script>

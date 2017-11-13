@@ -1,4 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<!-- 
+	일단 보류.
+ -->
+
+ <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ include file="../include/header.jsp" %> 
 <script type="text/javascript" src="script/findMemberIdAndPassword.js"></script>

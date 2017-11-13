@@ -5,7 +5,7 @@
 <%@ include file="sub_menu.html" %>   
   <article>
     <h2>Join Us</h2>
-    <form id="join" action="NonageServlet?command=join_form" 
+    <form id="join" action="/member/join_form" 
 method="post" name="formm">
         언제나 새로운 즐거움이 가득한 맘스터치 딜리버리의 회원가입 페이지 입니다. <br>
        맘스터치 딜리버리의 회원가입은 무료이며, 회원님의 개인신상에 관한 정보는 

@@ -19,7 +19,7 @@
         <c:forEach items="${cartList}"  var="cartVO">
         <tr>      
           <td>
-            <a href="NonageServlet?command=product_detail&pseq=${cartVO.pseq}">
+            <a href="/product/product_detail?pseq=${cartVO.pseq}">
               <h3> ${cartVO.pname} </h3>              
             </a>    
           </td>
@@ -49,7 +49,7 @@
      
     <div id="buttons" style="float: right">
       <input type="button" value="쇼핑 계속하기" class="cancel"  
-onclick="location.href='NonageServlet?command=catagory&kind=1'">    
+onclick="location.href='/product/category?kind=1'">    
       <c:if test= "${cartList.size() != 0}">
       <input type="button" value="주문하기"  class="submit"
 onclick="go_order_insert()">

@@ -6,7 +6,7 @@
   <article>
   <hr>
     <center><h2>Join Us</h2></center>
-    <form id="join" action="NonageServlet?command=join" method="post" name="formm">
+    <form id="join" action="/member/join" method="post" name="formm">
       <fieldset>
         <legend>기본정보</legend>
         <label>아이디</label>

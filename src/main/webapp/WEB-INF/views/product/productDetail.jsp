@@ -11,7 +11,7 @@
           <legend> Item detail Info</legend>  
           <a href="/product/product_detail?pseq=${productVO.pseq}">         
             <span style="float: left;">
-              <img  src="/resources/image/momstouch/menu_${productVO.kind}/${productVO.image}.jpg"  />
+              <img src="/resources/image/momstouch/menu_${productVO.kind}/${productVO.image}.jpg"  />
             </span>              
             <h2> ${productVO.name} </h2>  
           </a>   

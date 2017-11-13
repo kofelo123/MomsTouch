@@ -1,11 +1,14 @@
 package com.momstouch.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.momstouch.domain.CartVO;
+import com.momstouch.domain.OrderVO;
 import com.momstouch.domain.ProductVO;
 import com.momstouch.persistence.ProductDAO;
 import com.momstouch.persistence.ProductDAOImpl;
@@ -45,6 +48,28 @@ public class ProductServiceImpl implements ProductService{
 	public ProductVO product_detail(String pseq) {
 		// TODO Auto-generated method stub
 		return dao.product_detail(pseq);
+	}
+
+	@Override
+	public void cartInsert(CartVO cartVO) {
+		dao.cartInsert(cartVO);
+	}
+
+	@Override
+	public List<CartVO> listCart(String id) {
+		// TODO Auto-generated method stub
+		return dao.listCart(id);
+	}
+
+	@Override
+	public List<Integer> seqOrderIng(String id) {
+		return dao.seqOrderIng(id);
+	}
+
+	@Override
+	public List<OrderVO> listOrderById(String id, String result, int oseq) {
+		// TODO Auto-generated method stub
+		return dao.listOrderById(id,result,oseq);
 	}
 
 }

@@ -17,7 +17,7 @@
 				<div class="da-slide">
 					<h2>뿌려먹는 치킨 "뿌치"</h2>
 					<p>치킨위에  고소한 어니언 치즈맛,매콤한 핫칠리맛, 향긋한 커리맛을 입맛에 맞게 뿌려 다양하게 맛볼 수 있는 뿌려먹는 치킨 "뿌치" </p>
-					<a href="/product/catagory?kind=1" class="da-link">메뉴보기</a><!-- 이거나중에 해당 메뉴로 연결되게끔 수정하면 좋을것같다, 이미지바꾸고  -->
+					<a href="/product/category?kind=1" class="da-link">메뉴보기</a><!-- 이거나중에 해당 메뉴로 연결되게끔 수정하면 좋을것같다, 이미지바꾸고  -->
 					<div class="da-img"><img src="/resources/rolling/images/1.png" alt="image01" /></div>
 				</div>
 				<div class="da-slide">

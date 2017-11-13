@@ -22,7 +22,7 @@ value="${totalPrice}" /> </td>
      </table>         
      <h3> 주문 상품 정보 </h3> 
      <table id="cartList">
-     <tr>
+     <tr>                                 
        <th>상품명</th> <th>상품별주문번호</th> <th>수량</th>
  <th>가격</th> <th>처리 상태</th>    
      </tr>
@@ -46,7 +46,7 @@ value="${orderVO.price2*orderVO.quantity}" /> </td>
      <div class="clear"></div>
      <div id="buttons" style="float: right">
        <input type="button"    value="쇼핑 계속하기"  class="cancel"  
-onclick="location.href='NonageServlet?command=index'">
+onclick="location.href='/'">
      </div>
     </form>  
   </article>

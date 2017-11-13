@@ -35,5 +35,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="product_detail" resultType="ProductVO">
 		select * from product where pseq=#{pseq}   
 	</select>
+	
+	<insert id="cartInsert">
+		insert into cart(cseq,id,pseq,quantity) values(CART_SEQ.nextval,#{id},#{pseq},#{quantity})
+	</insert>
+	
+	<select id="listCart" resultType="CartVO">
+		select * from cart_view where id=#{id} order by cseq desc
+	</select>
+	
+	<select id="seqOrderIng" resultType="Integer">
+		select distinct oseq from order_view where id = #{id} and result = '1' order by oseq desc
+	</select>
+	
+	<select id="listOrderById" resultType="OrderVO">
+		select * from order_view where id=#{id} and result like '%'||#{result}||'%' and oseq=#{oseq} 
+	</select>
 
 </mapper>

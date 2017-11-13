@@ -6,7 +6,7 @@
   function go_view(qseq) {
     var theForm = document.frm;
     theForm.qseq.value = qseq;
-    theForm.action = "NonageServlet?command=admin_qna_detail";
+    theForm.action = "/admin/admin_qna_detail";
     theForm.submit();
   }
 </script>

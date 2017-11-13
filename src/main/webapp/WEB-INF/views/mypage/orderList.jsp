@@ -13,7 +13,7 @@
        <c:forEach items="${orderList}"  var="orderVO">
        <tr>      
         <td>
-            <a href="NonageServlet?command=product_detail&pseq=${cartVO.pseq}">
+            <a href="/product/product_detail&pseq=${cartVO.pseq}">
               <h3> ${orderVO.pname} </h3>              
           </a>    
         </td>
@@ -32,7 +32,7 @@
           
       <div class="clear"></div>
       <div id="buttons" style="float: right">
-       <input type="button"    value="쇼핑 계속하기"  class="cancel"  onclick="location.href='NonageServlet?command=catagory&kind=1'">     
+       <input type="button"    value="쇼핑 계속하기"  class="cancel"  onclick="location.href='/product/category?kind=1'">     
       </div>
     </form>  
   </article>
