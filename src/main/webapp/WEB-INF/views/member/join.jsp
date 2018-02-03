@@ -6,7 +6,7 @@
   <article>
   <hr>
     <center><h2>Join Us</h2></center>
-    <form id="join" action="/member/join" method="post" name="formm">
+    <form id="join" action="/momstouch/member/join" method="post" name="formm">
       <fieldset>
         <legend>기본정보</legend>
         <label>아이디</label>
@@ -41,16 +41,16 @@
         <input type="text"       name="zipNum"   size="10" >      
         <input type="button"     value="우편 번호" class="dup" onclick="post_zip()"><br>
         <label>주소</label> 
-        <input type="text"        name="addr1"   size="50">
-        <input type="text"        name="addr2"   size="35" style="margin-left:140px" > <br>
+        <input type="text"        name="address"   size="50">
+        <input type="text"        name="address2"   size="35" style="margin-left:140px" > <br>
         <label>휴대전화</label> 
-        <select name="phone1">
+        <select name="phone">
    				<option value="010" selected="selected">010</option>
     			<option value="011">011</option>
     			<option value="016" >016</option>
     			<option value="017" >017</option>
     			<option value="018" >018</option>
-    			<option value="019" >019</option>
+    			<option value="019" >019</option>      
 			</select>
         -&nbsp;<input  type="text"       name="phone2" size="6">&nbsp;-&nbsp;<input  type="text"  name="phone3" size="6"><br>
       </fieldset>

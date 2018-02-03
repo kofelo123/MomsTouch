@@ -81,5 +81,14 @@ public class ProductVO {
   }  
   public void setIndate(Timestamp indate) {    
     this.indate = indate;
-  }  
+  }
+
+@Override
+public String toString() {
+	return "ProductVO [pseq=" + pseq + ", name=" + name + ", kind=" + kind + ", price1=" + price1 + ", price2=" + price2
+			+ ", price3=" + price3 + ", content=" + content + ", image=" + image + ", useyn=" + useyn + ", bestyn="
+			+ bestyn + ", indate=" + indate + "]";
+}  
+  
+  
 }

@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Momstouch Admin</title>
-<link rel="stylesheet" href="/resources/css/admin.css">
+<link rel="stylesheet" href="/momstouch/resources/css/admin.css">
 <script type="text/javascript">
 function worker_check()
 {
@@ -27,8 +27,8 @@ function worker_check()
   <div id="wrap">
     <header>      
       <div id="logo">
-        <a href="/admin/admin_login_form"> 
-        <img src="/resources/image/bar_1.gif">
+        <a href="/momstouch/admin/admin_login_form"> 
+        <img src="/momstouch/resources/image/bar_1.gif">
         </a>
       </div>      
     </header>
@@ -36,7 +36,7 @@ function worker_check()
     <article>
       <div id="loginform">
       <form name="frm" method="post" 
-action="/admin/admin_login">
+action="/momstouch/admin/admin_login">
       <table>
         <tr>
           <td> 아 이 디 </td>

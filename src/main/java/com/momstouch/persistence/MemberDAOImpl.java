@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.momstouch.domain.AddressVO;
 import com.momstouch.domain.MemberVO;
 import com.momstouch.domain.QnaVO;
 
@@ -43,6 +44,26 @@ public class MemberDAOImpl implements MemberDAO {
 		paramMap.put("qvo", qvo);
 		paramMap.put("id", id);
 		session.insert(namespace + ".insertQna",paramMap);
+	}
+
+	@Override
+	public int confirmId(String id) {
+		
+		MemberVO memberVO=session.selectOne(namespace+".confirmId",id);
+		
+		if(memberVO != null)
+			return 1;
+		return -1;
+	}
+
+	@Override
+	public List<AddressVO> selectAddressByDong(String dong) {
+		return session.selectList(namespace + ".selectAddressByDong",dong);
+	}
+
+	@Override
+	public void joinPost(MemberVO vo) {
+		session.insert(namespace + ".joinPost",vo);
 	}
 	
 	

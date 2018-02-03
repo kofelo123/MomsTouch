@@ -1,16 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+<!-- paging을 위한 부트스트랩 적용(겹치는게 있었어서 부트스트랩의 페이징 부분을 뽑아서 기존의 css등에 넣었다  -->
+<!-- <link rel="stylesheet" href="/momstouch/resources/bootstrap/css/bootstrap.css"> -->
+<!-- <script type="text/javascript" src="/momstouch/resources/bootstrap/js/bootstrap.js"></script> -->
+
 <%@ include file="../include/header.jsp"%>
 <%@ include file="../include/sub_menu.jsp"%>
 
+
+
+
 <article>
 <h1>상품리스트</h1>	
-<form name="frm" method="post">
+<form name="frm" method="get">
 <table>
   <tr>
   <td width="642">
       상품명 
-     <input type="text" name="key">
+     <input type="text" name="keyword">
      <input class="btn" type="button" name="btn_search" value="검색" onClick="go_search()">
      <input class="btn" type="button" name="btn_total" value="전체보기 " onClick="go_total()">
      <input class="btn" type="button" name="btn_write" value="상품등록" onClick="go_wrt()">
@@ -30,11 +37,12 @@
     </tr>
     </c:when>
 	<c:otherwise>
-	<c:forEach items="${productList}" var="productVO">
+	<c:forEach items="${list}" var="productVO">
     <tr>
+   
       <td height="23" align="center" >${productVO.pseq}</td>
       <td style="text-align: left; padding-left: 50px; padding-right: 0px;">   
-        <a href="#" onClick="go_detail('${tpage}', '${productVO.pseq}')">
+        <a href="#" onClick="go_detail('${pageMaker.cri.page}', '${productVO.pseq}')">
     	 ${productVO.name}     
    		</a>
    	  </td>
@@ -49,10 +57,32 @@
    	  </td> 
     </tr>
     </c:forEach>
-    <tr><td colspan="6" style="text-align: center;"> ${paging} </td></tr>
+    <%-- <tr><td colspan="6" style="text-align: center;"> ${paging} </td></tr> --%>
+   
 	</c:otherwise>	
 </c:choose>  
 </table>
+ <nav>
+    	<ul class="pagination">
+    	
+    		<c:if test="${pageMaker.prev}">
+    			<li><a href="${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li> <!-- 링크에 pageMaker.makeSearch로 gage정보들을 넣어준다.  -->
+    		</c:if>
+    		
+    		<c:forEach begin="${pageMaker.startPage}"
+    			end="${pageMaker.endPage }" var="idx">
+				<li 
+					<c:out value="${pageMaker.cri.page == idx?' class = active':''}"/>>
+				    <a href="${pageMaker.makeSearch(idx) }">${idx}</a>			
+	    	</li>
+	    	</c:forEach>
+	    	
+	    	<c:if test="${pageMaker.next && pageMaker.endPage > 0 }">
+	    		<li><a
+	    			href="${pageMaker.makeSearch(pageMaker.endPage + 1) }">&raquo;</a></li>
+	    	</c:if>
+    	</ul>
+    </nav>
 </form> 
 </article>
 <%@ include file="../include/footer.jsp"%>

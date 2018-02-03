@@ -6,7 +6,7 @@
   function go_view(qseq) {
     var theForm = document.frm;
     theForm.qseq.value = qseq;
-    theForm.action = "/admin/admin_qna_detail";
+    theForm.action = "/momstouch/admin/admin_qna_detail";
     theForm.submit();
   }
 </script>
@@ -24,12 +24,12 @@
       <td>
       ${qnaVO.qseq}  
       <c:choose>          
-        <c:when test='${qnaVO.rep=="1"}'>(미처리)</c:when>
-        <c:otherwise>(답변처리완료)</c:otherwise>
+        <c:when test='${qnaVO.rep=="1"}'><a href="#" onClick="javascript:go_view('${qnaVO.qseq}')" style="color:red">(미처리)</span></c:when>
+        <c:otherwise><a href="#" onClick="javascript:go_view('${qnaVO.qseq}')" style="color:#337ab7">(답변처리완료)</span></c:otherwise>
       </c:choose>      
       </td>
       <td> 
-      <a href="#" onClick="javascript:go_view('${qnaVO.qseq}')">
+      <a href="#" style="color:green;font-weight:bold;font-size:15px;" onClick="javascript:go_view('${qnaVO.qseq}')">
         ${qnaVO.subject} 
       </a>
       </td>

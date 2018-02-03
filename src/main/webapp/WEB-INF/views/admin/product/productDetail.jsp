@@ -5,12 +5,12 @@
 
 <article>
 <h1>상품 상세 보기</h1> 
-<form name="frm" method="post">
+<form name="frm"> <!-- method="post" -->
 <table id="list">
   <tr>
     <th>상품분류</th>
     <td  colspan="5">
-  ${kind}
+  ${productVO.kind}
      </td>    
     </tr>    
     <tr>
@@ -35,15 +35,17 @@
      <th>상품이미지</th>
      <td colspan="5" align="center">
   <!--[7] 상품 이미지를 출력하기 -->     
-     <img src="product_images/${productVO.image}" width="200pt">    
+  
+     <img src='/momstouch/resources/image/momstouch${subfolder}/${fileName}' width="200pt">    
+<%--      <img src="product_images/${productVO.image}" width="200pt"> --%>    
      </td>
     </tr>
      
 </table>
 <!--[8] 수정 버튼이 눌리면 상품 수정 페이지로 이동하되 현재 페이지와 상품 일련번호 값을 전달해 준다. --> 
-<input class="btn"  type="button" value="수정" onClick="go_mod('${tpage}','${productVO.pseq}')">
+<input class="btn"  type="button" value="수정" onClick="go_mod('${page}','${productVO.pseq}')">
 <!--[9] 목록 버튼이 눌리면 상품 리스트 페이지로 이동하되 현재 페이지를 전달해 준다. --> 
-<input class="btn"  type="button" value="목록" onClick="go_list('${tpage}')">           
+<input class="btn"  type="button" value="목록" onClick="go_list('${page}')">           
 </form>
 </article>
 <%@ include file="../include/footer.jsp"%>

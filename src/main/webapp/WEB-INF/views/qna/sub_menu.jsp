@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
   <nav id="sub_menu">
     <ul>    
-      <li><a href="/member/qna_list">Q&amp;A 게시글 리스트</a></li>
-      <li><a href="/member/qna_write_form">Q&amp;A 게시글 쓰기</a></li> 
+      <li><a href="/momstouch/member/qna_list">Q&amp;A 게시글 리스트</a></li>
+      <li><a href="/momstouch/member/qna_write_form">Q&amp;A 게시글 쓰기</a></li> 
     </ul>
   </nav>

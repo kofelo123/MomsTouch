@@ -1,20 +1,27 @@
 package com.momstouch.domain;
 
 public class AddressVO {  
-  private String zipNum;
+  private String zip_Num;
   private String sido;
   private String gugun;
   private String dong;
-  private String zipCode;
+  private String zip_Code;
   private String bunji;
   
-  public String getzipNum() {
-    return zipNum;
-  }
-  public void setzipNum(String zipNum) {
-    this.zipNum = zipNum;
-  }
-  public String getSido() {
+ 
+  public String getZip_Num() {
+	return zip_Num;
+}
+public void setZip_Num(String zip_Num) {
+	this.zip_Num = zip_Num;
+}
+public String getZip_Code() {
+	return zip_Code;
+}
+public void setZip_Code(String zip_Code) {
+	this.zip_Code = zip_Code;
+}
+public String getSido() {
     return sido;
   }
   public void setSido(String sido) {
@@ -31,12 +38,6 @@ public class AddressVO {
   }
   public void setDong(String dong) {
     this.dong = dong;
-  }
-  public String getzipCode() {
-    return zipCode;
-  }
-  public void setzipCode(String zipCode) {
-    this.zipCode = zipCode;
   }
   public String getBunji() {
     return bunji;

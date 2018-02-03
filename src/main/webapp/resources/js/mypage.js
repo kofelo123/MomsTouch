@@ -3,7 +3,7 @@ function go_cart() {
     alert("수량을 입력하여 주세요.");
     document.formm.quantity.focus();
   } else {
-    document.formm.action = "/product/cart_insert";
+    document.formm.action = "/momstouch/product/cart_insert";
     document.formm.submit();
   }
 }
@@ -28,13 +28,13 @@ function go_cart_delete() {
     alert("삭제할 항목을 선택해 주세요.");
 
   } else {
-    document.formm.action = "/product/cart_delete";
+    document.formm.action = "/momstouch/product/cart_delete";
     document.formm.submit();
   }
 }
 
 function go_order_insert() {
-  document.formm.action = "/product/order_insert";
+  document.formm.action = "/momstouch/product/order_insert";
   document.formm.submit();
 }
 
@@ -56,12 +56,12 @@ function go_order_delete() {
     alert("삭제할 항목을 선택해 주세요.");
 
   } else {
-    document.formm.action = "/product/order_delete";
+    document.formm.action = "/momstouch/product/order_delete";
     document.formm.submit();
   }
 }
 
 function go_order() {
-  document.formm.action = "/product/mypage";
+  document.formm.action = "/momstouch/product/mypage";
   document.formm.submit();
 }

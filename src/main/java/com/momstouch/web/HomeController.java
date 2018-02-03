@@ -31,6 +31,7 @@ public class HomeController {
 
 		model.addAttribute("listBestProduct",service.listBestProduct());
 		
+		
 		return "index";
 	}
 	

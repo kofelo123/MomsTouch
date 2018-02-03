@@ -8,7 +8,7 @@ public class OrderVO {
   private String id; 
   private Timestamp indate; 
   private String mname;
-  private String zipNum;
+  private String zip_Num;
   private String address;
   private String phone;  
   private int pseq;
@@ -71,11 +71,11 @@ public class OrderVO {
   public void setResult(String result) {
     this.result = result;
   }
-  public String getZipNum() {
-    return zipNum;
+  public String getZip_Num() {
+    return zip_Num;
   }
-  public void setZipNum(String zipNum) {
-    this.zipNum = zipNum;
+  public void setZip_Num(String zipNum) {
+    this.zip_Num = zipNum;
   }
   public String getAddress() {
     return address;
@@ -98,7 +98,7 @@ public class OrderVO {
 @Override
 public String toString() {
 	return "OrderVO [odseq=" + odseq + ", oseq=" + oseq + ", id=" + id
-			+ ", indate=" + indate + ", mname=" + mname + ", zipNum=" + zipNum
+			+ ", indate=" + indate + ", mname=" + mname + ", zip_Num=" + zip_Num
 			+ ", address=" + address + ", phone=" + phone + ", pseq=" + pseq
 			+ ", pname=" + pname + ", quantity=" + quantity + ", price2="
 			+ price2 + ", result=" + result + "]";

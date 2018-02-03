@@ -4,11 +4,11 @@
 <%@ include file="sub_img.html"%> 
 <%@ include file="sub_menu.jsp" %>       
   <article>
-    <h2> My Page(${title}) </h2>
+    <h2> ${title} </h2>
     <form name="formm" method="post">
       <table id="cartList">
       <tr>
-        <th>주문일자</th> <th>주문번호</th> <th>상품명</th> <th>결제 금액</th> <th>주문 상세</th> </th>    
+        <th>주문일자</th> <th>주문번호</th> <th>상품명</th> <th>결제 금액</th> <th>주문 상세</th> <th>처리 상태</th>    
       </tr>
       <c:forEach items="${orderList}"  var="orderVO">
       <tr>  
@@ -16,14 +16,18 @@
         <td> ${orderVO.oseq} </td>    
         <td> ${orderVO.pname} </td>
         <td> <fmt:formatNumber value="${orderVO.price2}" type="currency"/> </td>
-        <td> <a href="/product/order_detail&oseq=${orderVO.oseq}"> 조회 </a></td>
+        <td>
+         <c:if test='${orderVO.result=="1"}'><span style="color:red"> 진행중 </c:if>
+         <c:if test='${orderVO.result=="2"}'><span style="color:blue"> 처리완료 </c:if>
+       </td>
+        <td> <a href="/momstouch/product/order_detail?oseq=${orderVO.oseq}"> 조회 </a></td>
       </tr>
       </c:forEach>    
       </table>   
           
       <div class="clear"></div>
       <div id="buttons" style="float: right">
-       <input type="button"    value="쇼핑 계속하기"  class="cancel"  onclick="location.href='/'"> 
+       <input type="button"    value="쇼핑 계속하기"  class="cancel"  onclick="location.href='/momstouch/'"> 
       </div>
     </form>  
   </article>

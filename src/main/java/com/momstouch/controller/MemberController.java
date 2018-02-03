@@ -3,6 +3,7 @@ package com.momstouch.controller;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.request;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -25,6 +26,9 @@ public class MemberController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
+	@Resource(name = "uploadPath")
+	private String uploadPath;
+	
 	@Inject
 	private MemberService service;
 	
@@ -46,23 +50,54 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "id_check_form", method = RequestMethod.GET)
-	public String id_check_form(Model model){
+	public String id_check_form(Model model,@RequestParam("id")String id){
+		
+		model.addAttribute("message",service.confirmId(id));
+		model.addAttribute("id",id);
+		
+		return "/member/idcheck";
+	}
+	
+	@RequestMapping(value = "id_check_form", method = RequestMethod.POST)
+	public String id_check_form2(Model model,@RequestParam("id")String id){
+		
+		model.addAttribute("message",service.confirmId(id));
+		model.addAttribute("id",id);
 		
 		return "/member/idcheck";
 	}
 	
 	
+	
 	@RequestMapping(value = "find_zip_num", method = RequestMethod.GET)
 	public String find_zip_num(Model model){
+		
 		
 		return "/member/findZipNum";
 	}
 	
-	@RequestMapping(value = "join" , method = RequestMethod.GET)
+	@RequestMapping(value = "find_zip_num", method = RequestMethod.POST)
+	public String find_zip_num2(Model model,@RequestParam("dong")String dong){
+		
+		if(dong!=null && dong.trim().equals("")==false){
+			model.addAttribute("addressList",service.selectAddressByDong(dong.trim()));
+		}
+		return "/member/findZipNum";
+	}
+	
+	/*	@RequestMapping(value = "join" , method = RequestMethod.GET)
 	public String join(Model model){
 		return "/member/login";
 	}
-	
+	*/	
+	@RequestMapping(value = "join" , method = RequestMethod.POST)
+	public String join(Model model,MemberVO vo){
+		
+		service.joinPost(vo);
+		
+		return "/member/login";
+	}
+
 	@RequestMapping(value = "login_form" , method = RequestMethod.GET)
 	public String login_form(Model model){
 		return "/member/login";                                                                                                                

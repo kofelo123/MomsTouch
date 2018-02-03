@@ -5,22 +5,25 @@
 
 <article>
 <h1>상품수정</h1>  
-<form name="frm" method="post" enctype="multipart/form-data">
+<form name="frm" method="post" action="/admin/admin_product_update" enctype="multipart/form-data">
 <input type="hidden" name="pseq" value="${productVO.pseq}">
 <input type="hidden" name="code" >
 <input type="hidden" name="nonmakeImg" value="${productVO.image}">
+<input type="hidden" id="uncheckedbest" name="bestyn" value="n">
+<input type="hidden" id="uncheckeduse" name="useyn" value="n">
 <table id="list">
   <tr>
-    <th>상품분류</th>
+    <th>상품분류/${kindList[1]} / ${productVO.kind }</th>
     <td colspan="5">
+     
     <select name="kind">
       <c:forEach items="${kindList}" var="kind" varStatus="status">
         <c:choose>
-          <c:when test="${productVO.kind==status.count}">
-            <option value="${status.count}" selected="selected">${kind}</option>
+          <c:when test="${productVO.kind==kindList[status.index]}">
+            <option value="${productVO.kind}" selected="selected">${productVO.kind}</option>
           </c:when>
           <c:otherwise>
-            <option value="${status.count}">${kind}</option>
+            <option value="${kindList[status.index]}">${kindList[status.index]}</option>
           </c:otherwise>
         </c:choose>
       </c:forEach>
@@ -50,23 +53,25 @@
   <tr>
     <th>베스트상품</th>
     <td>
+    	
       <c:choose>
         <c:when test='${productVO.bestyn=="y"}'>
-          <input type="checkbox" name="bestyn" value="y" checked="checked">
+          <input type="checkbox" id="checkboxbest" name="bestyn" value="y" checked="checked">
         </c:when>
         <c:otherwise>
-          <input type="checkbox" name="bestyn" value="n">
+          <input type="checkbox" id="checkboxbest" name="bestyn" value="y">
         </c:otherwise>
       </c:choose>
     </td>        
     <th>사용유무</th>
     <td>
+ 
       <c:choose>
         <c:when test='${productVO.useyn=="y"}'>
-          <input type="checkbox" name="useyn" value="y" checked="checked">
+          <input type="checkbox"  id="checkboxuse" name="useyn" value="y" checked="checked">
         </c:when>
       <c:otherwise>
-        <input type="checkbox" name="useyn" value="n">
+        <input type="checkbox" id="checkboxuse" name="useyn" value="y">
       </c:otherwise>
     </c:choose>
     </td>
@@ -80,13 +85,14 @@
   <tr>
     <th>상품이미지</th>
     <td colspan="5">
-      <img src="product_images/${productVO.image}" width="200pt">     
+      <img src="/momstouch/resources/image/momstouch${subfolder}/${productVO.image}" width="200pt">     
       <br>
-      <input type="file" name="image">
+      <input type="file" name="file">
     </td> 
   </tr>    
 </table>
-<input class="btn" type="button" value="수정" onClick="go_mod_save('${tpage}','${productVO.pseq}')">           
+<input class="btn" type="button" value="수정" onClick="go_mod_save('${productVO.pseq}')">           
+<%-- <input class="btn" type="button" value="수정" onClick="go_mod_save('${tpage}','${productVO.pseq}')">            --%>
 <input class="btn" type="button" value="취소" onClick="go_mov()">
 </form> 
 </article>

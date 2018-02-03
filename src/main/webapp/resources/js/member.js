@@ -18,7 +18,7 @@ function go_save() {
     alert("이메일을 입력해 주세요.");
     document.formm.email.focus();
   } else {
-    document.formm.action = "/member/join";
+    document.formm.action = "/momstouch/member/join";
     document.formm.submit();
   }
 }
@@ -29,21 +29,21 @@ function idcheck() {
     document.formm.id.focus();
     return;
   }
-  var url = "/member/id_check_form?id=" 
+  var url = "/momstouch/member/id_check_form?id=" 
 + document.formm.id.value;
   window.open( url, "_blank_1",
 "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=400, height=250, left=1100, top=340");
 }
 
 function post_zip() {
-  var url = "/member/find_zip_num";
+  var url = "/momstouch/member/find_zip_num";
   window.open( url, "_blank_1",
 "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=550, height=400, top=400, left=1100 ");
 }
 
 function go_next() {
   if (document.formm.okon1[0].checked == true) {
-    document.formm.action = "/member/join_form";
+    document.formm.action = "/momstouch/member/join_form";
     document.formm.submit();
   } else if (document.formm.okon1[1].checked == true) {
     alert('약관에 동의하셔야만 합니다.');

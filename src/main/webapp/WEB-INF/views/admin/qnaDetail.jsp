@@ -6,7 +6,7 @@
    function go_list()
    {
     var theForm = document.frm;
-    theForm.action="/admin/admin_qna_list";
+    theForm.action="/momstouch/admin/admin_qna_list";
     theForm.submit();
    }
 
@@ -14,7 +14,7 @@
    {
       var theForm = document.frm;
     theForm.qseq.value=qseq;
-    theForm.action="/admin/admin_qna_repsave";
+    theForm.action="/momstouch/admin/admin_qna_repsave";
     theForm.submit();
    }   
 </script>
@@ -41,7 +41,7 @@
   <table id="orderList">
       <tr>
           <td colspan="2">
-      <img src="/resources/image/opinionimg01.gif">
+      <img src="/momstouch/resources/image/opinionimg01.gif">
       </td>
       </tr>
     <tr>

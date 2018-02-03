@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.momstouch.domain.AddressVO;
 import com.momstouch.domain.MemberVO;
 import com.momstouch.domain.QnaVO;
 import com.momstouch.persistence.MemberDAO;
@@ -35,6 +36,22 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void insertQna(QnaVO qvo, String id) {
 		dao.insertQna(qvo,id);
+	}
+
+	@Override
+	public int confirmId(String id) {
+		return dao.confirmId(id);
+	}
+
+	@Override
+	public List<AddressVO> selectAddressByDong(String dong) {
+		return dao.selectAddressByDong(dong);
+	}
+
+	@Override
+	public void joinPost(MemberVO vo) {
+		// TODO Auto-generated method stub
+		dao.joinPost(vo);
 	}
 
 }

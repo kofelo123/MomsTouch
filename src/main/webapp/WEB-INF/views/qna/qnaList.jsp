@@ -14,7 +14,7 @@
       <c:forEach items="${qnaList}"  var="qnaVO">
       <tr>  
         <td> ${qnaVO.qseq} </td>    
-        <td> <a href="/member/qna_view?qseq=${qnaVO.qseq}"> ${qnaVO.subject} </td>      
+        <td> <a href="/momstouch/member/qna_view?qseq=${qnaVO.qseq}"> ${qnaVO.subject} </td>      
         <td> <fmt:formatDate value="${qnaVO.indate}" type="date"/></td>
         <td> 
           <c:choose>
@@ -28,9 +28,9 @@
       <div class="clear"></div>
       <div id="buttons" style="float:right">
       <input type="button"  value="1:1 질문하기"  class="submit"    
-onclick="location.href='/member/qna_write_form'"> 
+onclick="location.href='/momstouch/member/qna_write_form'"> 
       <input type="button"  value="쇼핑 계속하기"  class="cancel"  
-onclick="location.href='/member/category?kind=1'">  
+onclick="location.href='/momstouch/product/category?kind=치킨%20메뉴'">  
       </div>
     </form>
   </article>

@@ -6,8 +6,9 @@
   <article>
     <h2> Cart List </h2>
     <form name="formm" method="post">
+    <!-- 작동 안하는데 model.addAttribute의 경우 무조건 forEach에 담아서 써야만하는건지..  -->
     <c:choose>
-    <c:when test= "${cartList.size() == 0}">
+    <c:when test= "${cartList.size() == null}">
       <h3 style="color: red;text-align: center;"> 장바구니가 비었습니다. </h3> 
     </c:when>
     <c:otherwise>
@@ -19,7 +20,7 @@
         <c:forEach items="${cartList}"  var="cartVO">
         <tr>      
           <td>
-            <a href="/product/product_detail?pseq=${cartVO.pseq}">
+            <a href="/momstouch/product/product_detail?pseq=${cartVO.pseq}">
               <h3> ${cartVO.pname} </h3>              
             </a>    
           </td>
@@ -49,8 +50,8 @@
      
     <div id="buttons" style="float: right">
       <input type="button" value="쇼핑 계속하기" class="cancel"  
-onclick="location.href='/product/category?kind=1'">    
-      <c:if test= "${cartList.size() != 0}">
+onclick="location.href='/momstouch/product/category?kind=치킨 메뉴'">    
+      <c:if test= "${cartList.size() != null}">
       <input type="button" value="주문하기"  class="submit"
 onclick="go_order_insert()">
       </c:if>

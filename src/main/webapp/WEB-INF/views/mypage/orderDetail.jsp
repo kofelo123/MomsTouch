@@ -36,7 +36,7 @@ value="${orderVO.price2*orderVO.quantity}" /> </td>
        <td>
          <c:choose>
          <c:when test='${orderVO.result=="1"}'> 진행중 </c:when>
-         <c:otherwise> <span style="color:red"> 처리완료 </span></c:otherwise>
+         <c:otherwise> <span style="color:blue"> 처리완료 </span></c:otherwise>
          </c:choose>
        </td>
      </tr>
@@ -46,7 +46,7 @@ value="${orderVO.price2*orderVO.quantity}" /> </td>
      <div class="clear"></div>
      <div id="buttons" style="float: right">
        <input type="button"    value="쇼핑 계속하기"  class="cancel"  
-onclick="location.href='/'">
+onclick="location.href='/momstouch/product/category?kind=치킨%20메뉴'">
      </div>
     </form>  
   </article>

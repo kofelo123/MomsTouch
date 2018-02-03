@@ -37,7 +37,7 @@ function idok(){
 <div id="wrap">
   <h1>ID 중복확인</h1>
   <form method=post name=formm style="margin-right:0 "
-action="/member/ id_check_form" >
+action="/momstouch/member/id_check_form" >
     User ID <input type=text name="id" value=""> 
             <input type=submit value="검색" class="submit"><br>     
     <div style="margin-top: 20px">   

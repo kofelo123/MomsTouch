@@ -52,7 +52,7 @@ table#zipcode a:hover{
 <script type="text/javascript">
 function result(zipNum,sido,gugun,dong) {
    opener.document.formm.zipNum.value=zipNum;
-   opener.document.formm.addr1.value=sido+" "+gugun+" "+dong;
+   opener.document.formm.address.value=sido+" "+gugun+" "+dong;
    self.close();
 };
 </script>
@@ -60,7 +60,7 @@ function result(zipNum,sido,gugun,dong) {
 <body>
 <div id="popup">
   <h1>우편번호검색</h1>
-  <form method=post name=formm action="/member/find_zip_num">
+  <form method=post name=formm action="/momstouch/member/find_zip_num">
     동 이름 : <input name="dong" type="text">
             <input type="submit" value="찾기"  class="submit">
   </form>
@@ -71,9 +71,9 @@ function result(zipNum,sido,gugun,dong) {
     </tr>
     <c:forEach items="${addressList}" var="addressVO">
     <tr>
-      <td>${addressVO.zipNum}</td>
+      <td>${addressVO.zip_Num}</td>
         <td>
-          <a href="#" onclick="return result('${addressVO.zipNum}'
+          <a href="#" onclick="return result('${addressVO.zip_Num}'
 ,'${addressVO.sido}', '${addressVO.gugun}','${addressVO.dong}')">
             ${addressVO.sido} ${addressVO.gugun} ${addressVO.dong} 
           </a>

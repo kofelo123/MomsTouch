@@ -26,7 +26,16 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" 
 		destroy-method="clearCache"> <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg> 
 	</bean>
-
+	
+	<!-- <beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="C:\\zzz\\upload">
+		</beans:constructor-arg>
+	</beans:bean> -->
+	
+	<!-- <bean id="uploadPath" class="java.lang.String">
+		<constructor-arg value="c:\\zzz\\upload"></constructor-arg>
+	</bean>
+ -->
 	<context:component-scan base-package="com.momstouch.service"></context:component-scan>
 	<context:component-scan base-package="com.momstouch.persistence"></context:component-scan>
 	
