@@ -12,7 +12,7 @@
         <label>아이디</label>
         <input type="text"      name="id"        size="12"  >
         <input type="hidden"    name="reid">
-        <input type="button"    value="중복 체크"  class="dup" onclick="idcheck()"><br>
+        <input type="button"    value="중복 체크"  class="dup" id="idcheck"><br>
         <label>비밀번호</label> 
         <input type="password"  name="pwd"><br> 
         <label>비밀번호 확인</label> 
@@ -20,8 +20,8 @@
         <label>이름</label>
         <input type="text"      name="name"><br> 
         <label>이메일</label>
-        <input type="text"      name="email" size="12">&nbsp;@ <input type="text"      name="email2" size="12">
-        	<select name="company" onclick="mailcheck()">
+        <input type="text"      name="email" size="12">&nbsp;@ <input type="text"   name="email2" size="12">
+        	<select name="company" id="mailcheck">
    				<option value="직접입력" selected="selected">직접입력</option>
     			<option value="naver.com">네이버</option>
     			<option value="daum.net" >다음</option>
@@ -38,8 +38,8 @@
       <fieldset>
         <legend>추가정보</legend>
         <label>우편번호</label> 
-        <input type="text"       name="zipNum"   size="10" >      
-        <input type="button"     value="우편 번호" class="dup" onclick="post_zip()"><br>
+        <input type="text"       name="zip_Num"   size="10" >      
+        <input type="button"     value="우편 번호" class="dup" id="postzip"><br>
         <label>주소</label> 
         <input type="text"        name="address"   size="50">
         <input type="text"        name="address2"   size="35" style="margin-left:140px" > <br>
@@ -56,7 +56,7 @@
       </fieldset>
       <div class="clear"></div>
       <div id="buttons">
-        <input type="button"    value="회원가입"   class="submit" onclick="go_save()"> 
+        <input type="button"    value="회원가입"   class="submit" id="register"> 
         <input type="reset"      value="취소"     class="cancel">
       </div>
     </form>

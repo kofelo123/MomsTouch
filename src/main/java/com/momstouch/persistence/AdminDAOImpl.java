@@ -133,5 +133,11 @@ public class AdminDAOImpl implements AdminDAO{
 		session.update(namespace + ".userBan", userBan);
 	}
 
+	@Override
+	public void deleteProduct(String pseq) {
+		session.delete(namespace + ".deleteProduct", pseq);
+		
+	}
+
 	
 }

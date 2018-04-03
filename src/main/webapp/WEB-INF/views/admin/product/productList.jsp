@@ -88,3 +88,10 @@
 <%@ include file="../include/footer.jsp"%>
 </body>
 </html>
+
+<script> 
+var delmsg = "${delmsg}";
+	if(delmsg == 'DELETESUCCESS'){
+		alert("삭제가 완료되었습니다.");
+	}
+</script>

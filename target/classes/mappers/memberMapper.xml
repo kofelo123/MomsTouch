@@ -33,6 +33,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into member 
 			(id, pwd, name, zip_num, email, address, phone)
 		values
-			(#{id},#{pwd},#{name},#{zipNum},#{email},#{totalAddress},#{totalPhone})
+			(#{id},#{pwd},#{name},#{zip_Num},#{email},#{totalAddress},#{totalPhone})
 	</insert>
 </mapper>

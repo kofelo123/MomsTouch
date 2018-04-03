@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.momstouch.mapper.Admin">
+
+	<select id="workCheck" resultType="String">
+		select pwd from worker where id= #{id}
+	</select>
+<!-- 서브쿼리로 desc 한번 정렬한후 rownum으로 30개 뽑아야 정렬된 상위 데이터를 뽑을수있다. -->
+	<select id="listOrder" resultType="OrderVO">
+		<![CDATA[
+		select * 
+		from 
+		(
+			select * 
+			from order_view
+			where mname like '%'||#{key}||'%'  
+			order by result, oseq desc
+		)
+		where rownum < 30
+		]]>
+	</select>
+	
+	<select id="listMember" resultType="MemberVO">
+		select * from member where name like '%'||#{key}||'%' order by useyn desc,indate desc 
+	</select>
+	
+	<select id="listAllQna" resultType="QnaVO">
+		<![CDATA[
+			select *
+			from 
+			(
+				select *
+				from qna
+				order by rep asc, indate desc
+			)
+			where rownum < 15
+		]]>
+		 
+	</select>
+	
+	<select id="getQna" resultType="QnaVO">
+		select * from qna where qseq=#{qseq}
+	</select>
+	
+	<update id="updateQna">
+		update qna set reply=#{reply} , rep='2' where qseq=#{qseq}
+	</update>
+	
+	<update id="updateOrderResult">
+		update order_detail set result ='2' where odseq=#{oseq}
+	</update>
+	
+	<select id="productList" resultType="ProductVO">
+	<![CDATA[
+		select 
+			pseq, indate, name, price1, price2, useyn, bestyn 
+		from 
+			(
+			select
+				/*+INDEX_DESC(product pk_pseq)*/
+			rownum rn, pseq, indate, name, price1, price2, useyn, bestyn
+			from product 
+		where 
+			name 
+		like CONCAT
+			('%',CONCAT(#{keyword},'%'))
+		AND	
+		ROWNUM 
+			<= #{page} *#{perPageNum}
+		)
+		where rn > (#{page}-1)* #{perPageNum}
+		]]>
+	</select>
+	
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[
+		select 
+			count(pseq)
+		from 
+			product 
+		where 
+			pseq > 0
+		and
+			name like CONCAT('%', CONCAT(#{keyword},'%'))
+		]]>
+			
+	</select>
+	
+	<insert id= "insertInfo">
+		insert into
+			product(pseq, kind, name, price1, price2, price3, content, image)
+		values
+			(product_seq.nextval ,#{kind},#{name},#{price1},#{price2},#{price3},#{content}, #{image})
+	</insert>
+	
+	<select id="getProduct" resultType="ProductVO">
+		select * 
+		from
+			product
+		where 
+			pseq = #{pseq}
+	</select>
+	
+	<update id="updateInfo">
+		update 
+			product
+		set
+			kind=#{kind},useyn=#{useyn},name=#{name},price1=#{price1},price2=#{price2},price3=#{price3},content=#{content},image=#{image},bestyn=#{bestyn} 
+		where 
+			pseq=#{pseq}
+	</update>
+	
+	<update id="userBan">
+		update 
+			member
+		set
+			useyn='n'
+		where
+			id=#{userBan}
+	</update>
+	
+</mapper>

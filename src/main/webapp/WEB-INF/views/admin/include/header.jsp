@@ -6,8 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Nonage Admin</title>
+<title>Momstouch Admin</title>
 <link rel="stylesheet" href="/momstouch/resources/css/admin.css">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 <script type="text/javascript" src="/momstouch/resources/js/product2.js"></script>
 <c:choose>
 	<c:when test="${empty workerId}">

@@ -1,8 +1,10 @@
+/*//아마 이 js 없애야할듯.
 function go_cart() {
   if (document.formm.quantity.value == "") {
     alert("수량을 입력하여 주세요.");
     document.formm.quantity.focus();
   } else {
+	  
     document.formm.action = "/momstouch/product/cart_insert";
     document.formm.submit();
   }
@@ -64,4 +66,4 @@ function go_order_delete() {
 function go_order() {
   document.formm.action = "/momstouch/product/mypage";
   document.formm.submit();
-}
+}*/

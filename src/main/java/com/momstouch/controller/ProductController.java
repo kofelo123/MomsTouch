@@ -94,31 +94,6 @@ public class ProductController {
 		return "/product/productKind";
 	}
 	
-	/*@RequestMapping(value = "category", method = RequestMethod.GET)
-	public String category(Model model,@RequestParam("kind") String kind) {
-		
-		model.addAttribute("productKindList", service.listKindProduct(kind));
-		
-		return "/product/productKind";
-	}
-
-	@RequestMapping(value = "category2", method = RequestMethod.GET)
-	public String category2(Model model,@RequestParam("kind") String kind) {
-
-		model.addAttribute("productKindList", service.listKindProduct2(kind));
-		
-		return "/product/productKind2";
-
-	}
-
-	@RequestMapping(value = "category3", method = RequestMethod.GET)
-	public String category3(Model model,@RequestParam("kind") String kind) {
-		
-		model.addAttribute("productKindList", service.listKindProduct3(kind));//2로 수정할것
-
-		return "/product/productKind3";
-
-	}*/
 	
 	@RequestMapping(value = "cart_insert", method = RequestMethod.POST)//그냥 파라미터에 CartVO로 받았어도 됬지 않았나 싶다.
 	public String cart_insert(Model model , HttpServletRequest request,@RequestParam("quantity") String quantity,@RequestParam("pseq") String pseq){
@@ -227,37 +202,7 @@ public class ProductController {
 		 
 		return "/mypage/orderList";
 	}
-/*	@RequestMapping(value = "mypage" , method = RequestMethod.POST)  //왜있는지 모르겠다 기존의 잘못된 로직에서 주문하기가 이쪽으로 하서 혼란이 왔는데 필요가없다. get메소드랑 내용이 같다.
-	public String mypage(Model model,HttpServletRequest request){
-		
-		 HttpSession session = request.getSession();
-		 MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
 
-		 if(loginUser == null)
-				return "redirect:/member/login_form";
-		 
-		 System.out.println("testPost");
-		List<Integer> oseqList = service.seqOrderIng(loginUser.getId());
-		
-		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
-		
-		for(int oseq : oseqList){
-			List<OrderVO> orderListIng = service.listOrderById(loginUser.getId(),"1",oseq); 
-			OrderVO orderVO = orderListIng.get(0);
-			orderVO.setPname(orderVO.getPname()+"외" + orderListIng.size() + "건");
-			int totalPrice = 0;
-			for(OrderVO ovo : orderListIng){
-				totalPrice += ovo.getPrice2() * ovo.getQuantity();
-			}
-			orderVO.setPrice2(totalPrice);
-			orderList.add(orderVO);
-		}
-			model.addAttribute("title","진행 중인 주문 내역");
-			model.addAttribute("orderList",orderList);
-		
-			return "/mypage/mypage";
-	}*/
-	
 	@RequestMapping(value = "mypage" , method = RequestMethod.GET)//조금 복잡한 로직이다. //mypage.jsp에 주문리스트를 뿌리기위한 정보를 가져오는 로직.
 	public String mypage2(Model model,HttpServletRequest request){
 		

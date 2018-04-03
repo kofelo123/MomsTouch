@@ -24,15 +24,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.momstouch.domain.PageMaker;
 import com.momstouch.domain.ProductVO;
 import com.momstouch.domain.QnaVO;
 import com.momstouch.domain.SearchCriteria;
 import com.momstouch.service.AdminService;
-import com.momstouch.web.MediaUtils;
+import com.momstouch.web.MediaUtils;/*
 import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;*/
 
 @Controller
 @RequestMapping("/admin/*")
@@ -47,7 +48,12 @@ public class AdminController {
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 	
-	
+
+	/*
+	 *관리자 로그인 폼 
+	 * @param model 모델
+	 * @return 관리자 로그인 페이지
+	 */
 	@RequestMapping(value = "admin_login_form" , method = RequestMethod.GET)
 	public String admin_login_form(Model model){
 		return "/admin/main";
@@ -67,28 +73,9 @@ public class AdminController {
 	public String admin_logout(Model model){
 		return "redirect:/admin/admin_login_form";
 	}
-/*	@RequestMapping(value = "admin_product_list" , method = RequestMethod.GET)
-	public String admin_product_list(Model model,@RequestParam(value="key",required=false)String key,@RequestParam(value="tpage",required=false)String tpage){
-		
-		if(key==null){
-			key="";
-		}
-		if(tpage==null){
-			tpage="1";
-		}else if(tpage.equals("")){
-			tpage="1";
-		}
-		model.addAttribute("key",key);
-		model.addAttribute("tpage",tpage);
-		
-		service.listProduct(Integer.parseInt(tpage),key);
-		service.pageNumber(Integer.parseInt(tpage),key);
-		
-		return "/admin/product/productList";
-	}*/
+
 	@RequestMapping(value = "admin_product_list" , method = RequestMethod.GET)
 	public String admin_product_list(Model model,@ModelAttribute("cri") SearchCriteria cri) throws Exception{
-//		System.out.println("criTest:"+cri);
 		model.addAttribute("list", service.productList(cri));
 		
 		PageMaker pageMaker = new PageMaker();
@@ -306,5 +293,14 @@ public class AdminController {
 		return "redirect:/admin/admin_member_list";
 	}
 	
+/** 상품삭제로직 */
+	@RequestMapping(value="del_product" , method = RequestMethod.POST)
+	public String del_product(@RequestParam("pseq")String pseq,RedirectAttributes rttr) {
+		
+		service.deleteProduct(pseq);
+		rttr.addFlashAttribute("delmsg", "DELETESUCCESS");
+		
+		return "redirect:/admin/admin_product_list";
+	}
 }
 

@@ -47,5 +47,7 @@ public interface AdminService {
 	
 	public void userBan(String userBan);
 	
+	public void deleteProduct(String pseq);
+	
 	
 }

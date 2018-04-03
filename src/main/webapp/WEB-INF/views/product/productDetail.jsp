@@ -19,7 +19,7 @@
           <label> 가 격 :  </label>  
           <p> ${productVO.price2} 원</p>  
           <label> 수 량 : </label> <div id="plusminus">
-         <input  type="text"      name="quantity"  size="2"      value="1"> <img src="/momstouch/resources/image/momstouch/plus.png" onclick="plus()" /><img src="images/momstouch/minus.png" onclick="minus()"/></div><br>
+         <input  type="text"      name="quantity"  size="2"      value=	"1"> <img src="/momstouch/resources/image/momstouch/plus.png" onclick="plus()" /><img src="images/momstouch/minus.png" onclick="minus()"/></div><br>
           <input  type="hidden"    name="pseq"       value="${productVO.pseq}"><br>
         </fieldset>
         
@@ -27,10 +27,26 @@
         <div class="clear"></div>
         <div id="buttons">
           <input type="button" value="장바구니에 담기"   class="submit"    onclick="go_cart()"> 
-          <input type="button" value="즉시 구매"       class="submit"    onclick="go_order_instant()"> 
+          <input type="button" value="즉시 구매"       class="submit"    id="instant_order" onclick="go_order_instant()"> 
           <input type="reset"  value="취소"           class="cancel" onclick="javascript:history.go(-1)">
         </div>
       </form>  
     </div>
   </article>
 <%@ include file="../include/footer.jsp" %>    
+
+<!-- <script>
+
+$(document).ready(function(){
+	
+	var formObj = $("[name=formm]");
+	$("#instant_order").on("click",function(){
+		
+		formObj.attr("action","/momstouch/product/order_instant");
+		formObj.submit();
+		
+	});
+	
+});
+
+</script> -->

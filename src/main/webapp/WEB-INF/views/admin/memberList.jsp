@@ -6,9 +6,12 @@
 <script type="text/javascript">
   function go_search()
   {
-	  document.frm.method="get";
+	  var formObj = $("[name=frm]");
+	  formObj.attr("method","get").attr("action","/momstouch/admin/admin_member_list");
+	  formObj.submit();
+	  /* document.frm.method="get";
      document.frm.action="/momstouch/admin/admin_member_list";
-     document.frm.submit();
+     document.frm.submit(); */
   }
 </script>
 
@@ -19,7 +22,7 @@
   <tr>
   <td> 
   회원 이름
-  <input type="text" name="key">
+  <input type="text" name="key"  onkeypress="if(event.keyCode==13) {go_search();}">
   <input class="btn" type="button" value="검색" onclick="go_search()">
   </td>
   </tr>
@@ -58,6 +61,8 @@
 </article>
 <%@ include file="include/footer.jsp"%>
 <script>
+
+
 /*
 function ban(){
 	var count = 0;

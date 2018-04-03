@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.momstouch.mapper.ProductMapper">
+
+	<select id="listNewProduct" resultType="ProductVO">
+		select *  from new_pro_view
+	</select>
+	
+	<select id="listBestProduct" resultType="ProductVO">
+		select * from best_pro_view
+	</select>
+	
+	
+	<select id="listKindProduct" resultType="ProductVO">
+	<![CDATA[
+		select
+			pseq,name,price2,content,image,useyn,kind
+		from
+			(
+			select
+				/*+INDEX_DESC(product pk_pseq)*/
+				rownum rn,pseq,name,price2,content,image,useyn,kind
+			from
+				 product
+			where
+				kind=#{kind}
+			AND
+				ROWNUM <= #{cri.page} *#{cri.perPageNum}
+			)
+		where rn > (#{cri.page}-1)* #{cri.perPageNum}
+		
+	]]>
+	</select>
+	
+	<!-- <select id="listKindProduct" resultType="ProductVO">
+	<![CDATA[
+		select * from product where kind=#{kind} AND image<10 order by pseq ASC
+	]]>
+	</select>
+	
+	<select id="listKindProduct2" resultType="ProductVO">
+	<![CDATA[
+		select * from product where kind=#{kind} AND (image>9 AND image<19) order by pseq ASC
+	]]>
+	</select>
+	
+	<select id="listKindProduct3" resultType="ProductVO">
+		<![CDATA[
+			select * from product where kind=#{kind} AND image>18 order by pseq ASC
+		]]>
+	</select> -->
+	
+	<select id="product_detail" resultType="ProductVO">
+		select * from product where pseq=#{pseq}   
+	</select>
+	
+	<insert id="cartInsert">
+		insert into cart(cseq,id,pseq,quantity) values(CART_SEQ.nextval,#{id},#{pseq},#{quantity})
+	</insert>
+	
+	<select id="listCart" resultType="CartVO">
+		select * from cart_view where id=#{id} order by cseq desc
+	</select>
+	
+	<select id="seqOrderIng" resultType="Integer">
+		select distinct oseq from order_view where id = #{id} and result like '%'||#{result}||'%' order by oseq desc
+	</select>
+
+	
+	<select id="listOrderById" resultType="OrderVO">
+		select * from order_view where id=#{id} and result like '%'||#{result}||'%' and oseq=#{oseq} 
+	</select>
+	
+	<delete id="deleteCart">
+		delete cart where cseq= #{cseq} 
+	</delete>
+	
+	
+	<select id="oseqMax" resultType="int">
+		select max(oseq) from orders
+	</select>
+	
+	<insert id="insertOrder">
+		insert into orders(oseq,id) values (orders_seq.nextval,#{id})
+	</insert>
+	
+	<insert id="insertOrderDetail">
+		insert into order_detail(odseq,oseq,pseq,quantity) values(order_detail_seq.nextval, #{maxOseq},#{cartVO.pseq},#{cartVO.quantity})
+	</insert>
+	
+<!-- paramMap이 아닐때 그냥 cseq해도되는지 아니면 CartVO.cseq해야하는지?  -->
+	<update id="updateCartResult">  
+		update cart set result = 2 where cseq=#{cseq}	
+	</update>
+	
+	<select id="listKindProductCount" resultType="int">
+		select
+			count(pseq)
+		from 
+			product
+		where
+			kind=#{kind}
+	</select>
+</mapper>

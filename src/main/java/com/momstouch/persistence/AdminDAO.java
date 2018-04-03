@@ -38,4 +38,6 @@ public interface AdminDAO {
 	public void updateInfo(ProductVO vo);
 	
 	public void userBan(String userBan);
+	
+	public void deleteProduct(String pseq);
 }

@@ -6,11 +6,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.momstouch.mapper.ProductMapper">
 
 	<select id="listNewProduct" resultType="ProductVO">
-		select *  from new_pro_view
+		select *
+		from new_pro_view
 	</select>
 	
 	<select id="listBestProduct" resultType="ProductVO">
-		select * from best_pro_view
+		select *
+		from best_pro_view
 	</select>
 	
 	

@@ -191,7 +191,7 @@ method="post" name="formm">
       <input type="radio" name="okon1" checked> 동의함 &nbsp; &nbsp; &nbsp;
       <input type="radio" name="okon1" checked> 동의안함
       </div>
-      <input type="button" value="Next" class="submit"  onclick="go_next()" style="float: right;"> 
+      <input type="button" value="Next" class="submit" id="goNext" style="float: right;"> 
     </form>
   </article>
 <%@ include file="../include/footer.jsp" %>  

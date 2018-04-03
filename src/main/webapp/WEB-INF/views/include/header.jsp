@@ -8,6 +8,7 @@
   <meta charset="UTF-8">
   <title>MomsTouch by JW</title>
   <link href="/momstouch/resources/css/shopping.css" rel="stylesheet">  
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
   <script type="text/javascript" src="/momstouch/resources/js/member.js"></script>
   <script type="text/javascript" src="/momstouch/resources/js/mypage.js"></script>
   <script type="text/javascript" src="/momstouch/resources/js/product.js"></script>
