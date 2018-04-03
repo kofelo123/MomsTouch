@@ -22,9 +22,9 @@ import com.momstouch.domain.ProductVO;
 import com.momstouch.domain.QnaVO;
 import com.momstouch.domain.SearchCriteria;
 import com.momstouch.persistence.AdminDAO;
-import com.oreilly.servlet.MultipartRequest;
+/*import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
+*/
 @Service
 public class AdminServiceImpl implements AdminService{
 
@@ -164,6 +164,11 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public void userBan(String userBan) {
 		dao.userBan(userBan);
+	}
+
+	@Override
+	public void deleteProduct(String pseq) {
+		dao.deleteProduct(pseq);
 	}
 
 	
