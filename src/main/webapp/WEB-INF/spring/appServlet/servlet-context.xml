@@ -11,7 +11,17 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
-
+	
+	<beans:bean id="configProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <beans:property name="locations">
+            <beans:list>
+            	<beans:value>/WEB-INF/spring/setting.properties</beans:value>
+                <!-- <value>classpath:/egovframework/egovProps/globals.properties</value> -->
+                <!-- value>file:/product/jeus/egovProps/globals.properties</value-->
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+    
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
@@ -26,7 +36,7 @@
 	</beans:bean>
 	
 	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="C:\workspace-sts-3.8.0.RELEASE\MomsTouch\src\main\webapp\resources\image\momstouch">
+		<beans:constructor-arg value="${Local.UploadPath}">
 		</beans:constructor-arg>
 	</beans:bean>
 	
