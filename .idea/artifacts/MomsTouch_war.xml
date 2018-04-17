@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="MomsTouch:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="momstouch.war">
+      <element id="artifact" artifact-name="MomsTouch:war exploded" />
+    </root>
+  </artifact>
+</component>

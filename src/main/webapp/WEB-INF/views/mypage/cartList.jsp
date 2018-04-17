@@ -40,7 +40,7 @@
           <th colspan="2"> 
             <fmt:formatNumber value="${totalPrice}" type="currency"/><br>
           </th> 
-          <th><a href="#" onclick="go_cart_delete()"><h3>삭제하기</h3></a></th>                       
+          <th id="a"><a href="#"  id="go_cart_delete"><h3>삭제하기</h3></a></th>
         </tr> 
       </table> 
     </c:otherwise>  
@@ -52,8 +52,7 @@
       <input type="button" value="쇼핑 계속하기" class="cancel"  
 onclick="location.href='/momstouch/product/category?kind=치킨 메뉴'">    
       <c:if test= "${cartList.size() != null}">
-      <input type="button" value="주문하기"  class="submit"
-onclick="go_order_insert()">
+      <input type="button" value="주문하기"  class="submit" id="go_order_insert">
       </c:if>
      </div>
     </form>
