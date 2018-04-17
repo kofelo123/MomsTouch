@@ -11,17 +11,38 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
-	
+	<!--
 	<beans:bean id="configProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <beans:property name="locations">
             <beans:list>
             	<beans:value>/WEB-INF/spring/setting.properties</beans:value>
-                <!-- <value>classpath:/egovframework/egovProps/globals.properties</value> -->
-                <!-- value>file:/product/jeus/egovProps/globals.properties</value-->
+                &lt;!&ndash; <value>classpath:/egovframework/egovProps/globals.properties</value> &ndash;&gt;
+                &lt;!&ndash; value>file:/product/jeus/egovProps/globals.properties</value&ndash;&gt;
             </beans:list>
         </beans:property>
     </beans:bean>
-    
+    -->
+
+	<beans:bean id="propertyConfigurator" class="org.jasypt.spring31.properties.EncryptablePropertyPlaceholderConfigurer">
+		<beans:constructor-arg ref="configurationEncryptor"/>
+		<beans:property name="locations">
+			<beans:list>
+				<beans:value>/WEB-INF/spring/setting.properties</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+
+	<beans:bean id="environmentVariablesConfiguration" class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+		<beans:property name="algorithm" value="PBEWithMD5AndDES"  />
+		<beans:property name="passwordEnvName" value="APP_ENCRYPTION_PASSWORD" />
+	</beans:bean>
+
+	<beans:bean id="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+		<beans:property name="config" ref="environmentVariablesConfiguration"/>
+		<beans:property name="password" value="rktwlsrud" />
+	</beans:bean>
+
+
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
