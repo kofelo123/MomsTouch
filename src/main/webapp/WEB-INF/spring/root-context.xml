@@ -43,9 +43,9 @@
 			
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
-		<property name="url" value="${Local.Url}"></property>
-		<property name="username" value="${Local.UserName}"></property>
-		<property name="password" value="${Local.Password}"></property>
+		<property name="url" value="${Server.Url}"></property>
+		<property name="username" value="${Server.UserName}"></property>
+		<property name="password" value="${Server.Password}"></property>
 	</bean>
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

@@ -57,7 +57,7 @@
 	</beans:bean>
 	
 	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="${Local.UploadPath}">
+		<beans:constructor-arg value="${Server.UploadPath}">
 		</beans:constructor-arg>
 	</beans:bean>
 	
